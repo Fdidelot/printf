@@ -6,11 +6,11 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/04/29 04:23:31 by snedir           ###   ########.fr       */
+/*   Updated: 2017/04/29 05:51:44 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 
 int	flags(char format, t_print *elem)
 {
@@ -31,16 +31,11 @@ int	num_width(char *format, t_print *elem, int start)
 {
 	int i;
 	char *str;
-	int j;
 	
 	i = 0;
-	j = 0;
 	str = NULL;
-	while (ft_isdigit(*format))
-	{
+	while (ft_isdigit(format[i]))
 		i++;
-		format++;
-	}
 	if (i)
 	{
 		str = ft_strsub(format, start, (size_t)i);
@@ -49,7 +44,7 @@ int	num_width(char *format, t_print *elem, int start)
 	}
 	return (0);
 }
-
+/*
 int	parser(char *format, t_print *elem)
 {
 	int i;
@@ -65,4 +60,4 @@ int	parser(char *format, t_print *elem)
 		i++;
 	}
 	return (1);
-}
+}*/

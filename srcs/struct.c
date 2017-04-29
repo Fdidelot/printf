@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/29 01:48:14 by snedir            #+#    #+#             */
-/*   Updated: 2017/04/29 02:15:34 by snedir           ###   ########.fr       */
+/*   Created: 2017/04/29 05:37:09 by snedir            #+#    #+#             */
+/*   Updated: 2017/04/29 05:49:19 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-t_print		*string(t_print *elem, va_list ap)
+t_print		*init()
 {
-	
-	elem->stock = ft_strdup(va_arg(ap, char*));
+	t_print *elem;
+
+	elem = (t_print*)malloc(sizeof(t_print));
+	MINUS = 0;
+	PLUS = 0;
+	SPACE = 0;
+	HASH = 0;
+	ZERO = 0;
+	NUM = 0;
+	STAR = 0;
+	ACC = 0;
+	STARAC = 0;
+	SPEC = '1';
+	NOPE = 0;
+	STOCK = NULL;
 	return (elem);
 }
+

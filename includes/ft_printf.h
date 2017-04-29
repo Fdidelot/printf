@@ -1,5 +1,4 @@
 /* ************************************************************************** */
-char	*return
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
@@ -7,7 +6,7 @@ char	*return
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/04/28 05:22:35 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/04/29 05:47:02 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +50,13 @@ typedef	struct	s_print
 	int			asterix;
 	int			accuracy;
 	int			starcuracy;
-	int			specifier;
+	char		specifier;
 	int			nope;
 	char		*stock;
 	
 }				t_print;
 
 int		ft_printf(const char *format, ...);
+t_print	*init();
 
 #endif

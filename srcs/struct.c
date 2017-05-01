@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 05:37:09 by snedir            #+#    #+#             */
-/*   Updated: 2017/04/29 05:49:19 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/01 06:57:56 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_print		*init()
 	ACC = 0;
 	STARAC = 0;
 	SPEC = '1';
-	NOPE = 0;
+	//NOPE = 0;
+	NEXT = NULL;
 	STOCK = NULL;
 	return (elem);
 }

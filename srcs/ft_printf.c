@@ -6,42 +6,22 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:32:26 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/04/28 05:22:29 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/01 03:45:26 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*char	*analyse(char *format, va_list ap)
-{
-	
-}
-*/
-
 int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	char	*stock;
-	int		i;
+	va_list	*ap;
+	t_print	*elem;
+	t_print	*start;
+	char	*final_buff;
 
-	ap = NULL;
-	while (format[i])
-	{
-		while (format[i] && format[i++] != '%');
-		if (format[i - 1] == '%')
-			if (!ap)
-				va_start(ap, format);
-			analyse;
-		else
-			stock = format;
-	}
-	affiche(stock);
-	return (ft_strlen(stock));
-}
-
-int main()
-{
-	char string[] = "trejj";
-	ft_printf("[%s\n]", string);
-	return (0);
+	va_start(ap, format);
+	start = analyse(format, ap, &elem);
+	final_buff = create_buff(format, elem);
+	affiche(final_buff);
+	return ((int)strlen(final_buff));
 }

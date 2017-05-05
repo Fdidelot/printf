@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/01 07:14:12 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/05 05:54:27 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 /* PRECISION */
 # define ACC elem->accuracy
+# define NACC elem->num_acc
 # define STARAC elem->starcuracy
 
 /* LENGHT */
@@ -58,6 +59,7 @@ typedef	struct		s_print
 	int				number;
 	int				asterix;
 	int				accuracy;
+	int				num_acc;
 	int				starcuracy;
 	char			lenght;
 //	int				size;
@@ -67,12 +69,15 @@ typedef	struct		s_print
 	struct s_print	*next;
 }					t_print;
 
+void				join(t_print *elem, t_print *new);
 int					lenght(char *format, t_print *elem);
 int					ft_printf(const char *format, ...);
-int					create_elem(t_print **elem, char *format);
+int					create_elem(t_print *elem, char *format);
 int					num_width(char *format, t_print *elem, int start);
-t_print				*analyse(char *format, va_list *ap, t_print **elem);
+int					num_acc(char *format, t_print *elem, int start);
+t_print				*analyse(char *format, t_print *elem);
 int					flags(char format, t_print *elem);
+char				specifier(t_print *elem, char format);
 t_print				*init();
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/01 07:16:31 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/05 05:57:40 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ int	num_width(char *format, t_print *elem, int start)
 	char *str;
 	
 	i = 0;
+	ret = 0;
 	str = NULL;
 	while (ft_isdigit(format[i]))
 		i++;
 	if (i)
 	{
-		str = ft_strsub(format, start, (size_t)i);
+		str = ft_strsub(format, 0, (size_t)i);
 		NUM = ft_atoi(str);
 		ret = ft_strlen(str);
 		free(str);
@@ -48,6 +49,30 @@ int	num_width(char *format, t_print *elem, int start)
 	}
 	return (0);
 }
+
+int	num_acc(char *format, t_print *elem, int start)
+{
+	int i;
+	size_t	ret;
+	char *str;
+	
+	i = 0;
+	ret = 0;
+	str = NULL;
+	ACC = 1;
+	while (ft_isdigit(format[i]))
+		i++;
+	if (i)
+	{
+		str = ft_strsub(format, 0, (size_t)i);
+		NACC = ft_atoi(str);
+		ret = ft_strlen(str);
+		free(str);
+		return ((int)ret);
+	}
+	return (0);
+}
+
 /*
 int	parser(char *format, t_print *elem)
 {
@@ -129,30 +154,49 @@ char specifier(t_print *elem, char format)
 		return (SPEC = 'c');
 	if (format == 'C')
 		return (SPEC = 'C');
+	if (format == '%')
+		return (SPEC = '%');
 	return (0);
 }
 
-int create_elem(t_print **elem, char *format)
+int create_elem(t_print *elem, char *format)
 {
 	int i;
 	int	j;
 
 	i = 1;
-	while (format[i] && (*elem)->specifier == '1')
+	j = (int)ft_strlen(format);
+	while (format[i] && SPEC == '1')
 	{
-		i += flags(*format, *elem);
-		i += num_width(&format[i], *elem, i);
+		while (flags(format[i], elem))
+			if (++i < j)
+				;
+		if ((i += num_width(&format[i], elem, i)) > j)
+			return (0);
 		if (format[i] == '.')
-			i += num_width(&format[i], *elem, i);
-		i += lenght(&format[i], *elem);
-		if (specifier(*elem, *format))
+		{
 			i++;
+			if ((i += num_acc(format + i, elem, i)) > j)
+				return (0);
+		}
+		if ((i += lenght(&format[i], elem)) > j)
+			return (0);
+		specifier(elem, format[i]);
 		i++;
 	}
-	return (1);
+	if (SPEC == '1')
+		return (0);
+	return (i);
 }
-/*
-t_print	*analyse(char *format, va_list *ap, t_print **elem)
+
+void	join(t_print *elem, t_print *new)
+{
+	while (NEXT)
+		elem = NEXT;
+	NEXT = new;
+}
+
+t_print	*analyse(char *format, t_print *elem) //va_list *ap
 {
 	t_print *start;
 	t_print *new;
@@ -161,21 +205,23 @@ t_print	*analyse(char *format, va_list *ap, t_print **elem)
 	{
 		if (*format == '%')
 		{
-			if (!*elem)
+			if (!elem)
 			{
-				*elem = init();
-				start = *elem;
+				elem = init();
+				start = elem;
+				printf("%s\n", format);
 				format += create_elem(elem, format);
 			}
 			else
 			{
 				new = init();
-				format += create_elem(&new, format);
-				jonction(*elem, &new);
+				printf("%s\n", format);
+				format += create_elem(new, format);
+				join(elem, new);
 			}
 		}
 		else
 			format++;
 	}
 	return (start);
-}*/
+}

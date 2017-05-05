@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/01 01:09:20 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/01 07:04:45 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/05 05:58:15 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,20 @@
 int main()
 {
 	char str[] = "Pet+it a#brut0i : %-d";
-	t_print *elem;
+	t_print	*elem;
 	int i = 0;
+
+	elem = NULL;
+	elem = 	analyse("Pet+it a#brut0i : %-d   %+-ciwebdiwedhwieuhd%skwjdwh%s", elem);
+	while (elem)
+	{
+	printf("Min = %d, Plus = %d, Space = %d, Hash = %d, Zero = %d, NUM = %d, ACC = %d, NACC = %d, LEN = %c, SPEC = %c\n", MINUS, PLUS, SPACE, HASH, ZERO, NUM, ACC, NACC, LEN, SPEC);
+	elem = NEXT;
+	}
+/*	create_elem(elem, "% +-#0654.125ll%");
+	printf("Min = %d, Plus = %d, Space = %d, Hash = %d, Zero = %d, NUM = %d, ACC = %d, NACC = %d, LEN = %c, SPEC = %c\n", MINUS, PLUS, SPACE, HASH, ZERO, NUM, ACC, NACC, LEN, SPEC); */
+	return (0);
+}
 
 	/*elem = init();
 	while (str[i])
@@ -36,8 +48,3 @@ int main()
 	}
 	//printf("%.*d %.*d\n", tamer, 25, 15, 25);
 	//printf("%.*d %.*d\n", tamer, 25, 15, 25);*/
-	elem = init();
-	create_elem(&elem, "% +-#0654.125hd");
-	printf("Min = %d, Plus = %d, Space = %d, Hash = %d, Zero = %d, NUM = %d, ACC = %d, LEN = %c, SPEC = %c\n", MINUS, PLUS, SPACE, HASH, ZERO, NUM, ACC, LEN, SPEC);
-	return (0);
-}

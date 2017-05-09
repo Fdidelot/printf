@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/01 01:09:20 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/09 11:54:15 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/09 12:07:57 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,22 @@ int main()
 	/*	create_elem(elem, "% +-#0654.125ll%");
 		printf("Min = %d, Plus = %d, Space = %d, Hash = %d, Zero = %d, NUM = %d, ACC = %d, NACC = %d, LEN = %c, SPEC = %c\n", MINUS, PLUS, SPACE, HASH, ZERO, NUM, ACC, NACC, LEN, SPEC); */
 	/*int c = 208;
-	  int h = 208 + 169;
-	  write(1, &c, 1);
 	  c = 169;
 	  write(1, &c, 1);
 	  char stru[2];
-	  stru[0] = 208;
-	  stru[1] = 169;
 	  write(1, stru, 2);*/
+	/*******************OPERATION POUR UN CHARACTERE UNICODE******************/
 	int tr = 0x1F645;
-	char *s = ft_itoa_base(tr, 2);
+	char *s = ft_itoa_base(tr, 2);  
 	size_t len = ft_strlen(s);
-	printf("len = %zu\n", len);
 	char *mask = create_mask(len);
-	printf("mask = %s\n", mask);
 	char *fill = fill_mask(mask, s);
-	printf("%ld\n", len % 4);
-	//printf("%s\n", fill);
+	free(mask);
 	char **strsplit = ft_strsplit(fill, ' ');
-	print_grid(strsplit);
-	char ccc = 255;
 	unsigned char *tabchiffre = binary_to_hex(strsplit, 4);
+	//free le split
+	//le 4 en dur a remplacer par une var = nbligne_du_split
+	/*************************************************************************/
 	/* free le mask, fill, strsplit*/
 	return (0);
 }

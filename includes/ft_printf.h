@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/05 05:54:27 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/09 11:23:10 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,11 @@ typedef	struct		s_print
 	struct s_print	*next;
 }					t_print;
 
-void				join(t_print *elem, t_print *new);
+unsigned char		*binary_to_hex(char **split, int sizetab);
+char				*create_mask(int len);
+char				*fill_mask(char *mask, char *fill);
+void				join(t_print *elem, t_print *news);
+int					minus6(int len);
 int					lenght(char *format, t_print *elem);
 int					ft_printf(const char *format, ...);
 int					create_elem(t_print *elem, char *format);

@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:43:49 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/04/28 23:14:16 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:10:15 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char				*ft_strtrim(const char *s);
 char				*ft_itoa(int n);
 char				*ft_strrev(char *str);
 char				*ft_itoa_base(int nb, int base);
+char				*ft_itoa_base_maj(int nb, int base);
 
 char				**ft_strsplit(const char *s, char c);
 

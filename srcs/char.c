@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 08:33:59 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/09 11:56:31 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/10 17:38:23 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,25 @@ int				*tabnum()
 	return (tab);
 }
 
-unsigned char		*binary_to_hex(char **split, int sizetab)
+int					countspace(char *mask)
 {
-	unsigned char *tab;
+	int				i;
+
+	i = 0;
+	while (*mask)
+	{
+		if (*mask == ' ')
+			i++;
+		mask++;
+	}
+	return (1 + i);
+}
+
+
+
+char		*binary_to_dec(char **split, int sizetab)
+{
+	char *tab;
 	int *add;
 	int nb;
 	int i;
@@ -100,7 +116,7 @@ unsigned char		*binary_to_hex(char **split, int sizetab)
 	j = 0;
 	nb = 0;
 	add = tabnum();
-	tab = (unsigned char*)ft_strnew(sizetab);
+	tab = (char*)ft_strnew(sizetab);
 	while (split[i])
 	{
 		while (split[i][j])
@@ -116,4 +132,20 @@ unsigned char		*binary_to_hex(char **split, int sizetab)
 	}
 	free(add);
 	return (tab);
+}
+
+char		*wide_char(int c)
+{
+	char	*str;
+	size_t	len;
+	char	*mask;
+	int		size;
+	char	*fill;
+
+	str = ft_itoa_base(c, 2);
+	len = ft_strlen(str);
+	mask = create_mask(len);
+	size = countspace(mask);
+	fill = fill_mask(mask, str);
+	return (binary_to_dec(ft_strsplit(fill, ' '), size));
 }

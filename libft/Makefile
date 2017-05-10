@@ -6,7 +6,7 @@
 #    By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 15:41:11 by fdidelot          #+#    #+#              #
-#    Updated: 2017/04/28 23:25:38 by fdidelot         ###   ########.fr        #
+#    Updated: 2017/05/10 17:10:45 by snedir           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,8 @@ PATH_SRC = ./
 PATH_OBJ = ./
 PATH_INC = ./
 
-SRCC =	ft_memset.c \
+SRCC =	ft_itoa_base_maj.c \
+		ft_memset.c \
 		ft_bzero.c \
 		ft_strdup.c \
 		ft_strlen.c \

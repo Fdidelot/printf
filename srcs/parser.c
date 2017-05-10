@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/05 05:57:40 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/10 19:25:32 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	flags(char format, t_print *elem)
 		return (HASH = 1);
 	if (format == '0')
 		return (ZERO = 1);
+	if (format == '*')
+		return (STAR = 1);
 	return (0);
 }
 
@@ -175,6 +177,9 @@ int create_elem(t_print *elem, char *format)
 			return (0);
 		if (format[i] == '.')
 		{
+			i++;
+			if (format[i] == '*')
+				STARAC = 1;
 			i++;
 			if ((i += num_acc(format + i, elem, i)) > j)
 				return (0);

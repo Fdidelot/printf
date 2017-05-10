@@ -6,13 +6,14 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/01 01:09:20 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/09 12:07:57 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/10 19:12:55 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <unistd.h>
 #include <wchar.h>
+#include <locale.h>
 
 void print_grid(char **grid)
 {
@@ -37,6 +38,7 @@ void print_grid(char **grid)
 
 int main()
 {
+	setlocale(LC_ALL, "");
 	char str[] = "Pet+it a#brut0i : %-d";
 	t_print	*elem;
 	int i = 0;
@@ -57,18 +59,12 @@ int main()
 	  char stru[2];
 	  write(1, stru, 2);*/
 	/*******************OPERATION POUR UN CHARACTERE UNICODE******************/
-	int tr = 0x1F645;
-	char *s = ft_itoa_base(tr, 2);  
-	size_t len = ft_strlen(s);
-	char *mask = create_mask(len);
-	char *fill = fill_mask(mask, s);
-	free(mask);
-	char **strsplit = ft_strsplit(fill, ' ');
-	unsigned char *tabchiffre = binary_to_hex(strsplit, 4);
+	//char *print = ft_itoa_base_maj(1234, 16);
+	//write(1, print, ft_strlen(print));
 	//free le split
-	//le 4 en dur a remplacer par une var = nbligne_du_split
 	/*************************************************************************/
-	/* free le mask, fill, strsplit*/
+	/*free le mask, fill, strsplit*/
+	printf("bonjour %.2f", 1.123);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/09 11:23:10 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/10 19:02:32 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 /* MISCELLANEOUS */
 # define STOCK elem->stock
 # define NOPE elem->nope
+# define DOLL elem->priority
 
 /* LIST */
 # define LST elem->list
@@ -65,15 +66,17 @@ typedef	struct		s_print
 //	int				size;
 	char			specifier;
 //	int				nope;
+	int				priority;
 	char			*stock;
 	struct s_print	*next;
 }					t_print;
 
-unsigned char		*binary_to_hex(char **split, int sizetab);
+char				*wide_char(int c);
+int					countspace(char *mask);
+char				*binary_to_dec(char **split, int sizetab);
 char				*create_mask(int len);
 char				*fill_mask(char *mask, char *fill);
 void				join(t_print *elem, t_print *news);
-int					minus6(int len);
 int					lenght(char *format, t_print *elem);
 int					ft_printf(const char *format, ...);
 int					create_elem(t_print *elem, char *format);

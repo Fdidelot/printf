@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/10 19:02:32 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/12 13:27:21 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define STOCK elem->stock
 # define NOPE elem->nope
 # define DOLL elem->priority
+# define SIZE elem->content_size
 
 /* LIST */
 # define LST elem->list
@@ -66,12 +67,14 @@ typedef	struct		s_print
 //	int				size;
 	char			specifier;
 //	int				nope;
-	int				priority;
+	int				priority; //RAJOUT INIT
+	int				content_size;
 	char			*stock;
 	struct s_print	*next;
 }					t_print;
 
-char				*wide_char(int c);
+void				parcours_liste(t_print *elem, va_list ap);
+int					wide_char(t_print *elem, va_list ap);
 int					countspace(char *mask);
 char				*binary_to_dec(char **split, int sizetab);
 char				*create_mask(int len);

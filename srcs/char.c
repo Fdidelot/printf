@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 08:33:59 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/10 17:38:23 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/12 13:41:32 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ char		*binary_to_dec(char **split, int sizetab)
 	return (tab);
 }
 
-char		*wide_char(int c)
+int			wide_char(t_print *elem, va_list ap)
 {
 	char	*str;
 	size_t	len;
@@ -142,10 +142,14 @@ char		*wide_char(int c)
 	int		size;
 	char	*fill;
 
+	wchar_t c = va_arg(ap, wchar_t);
 	str = ft_itoa_base(c, 2);
 	len = ft_strlen(str);
 	mask = create_mask(len);
 	size = countspace(mask);
 	fill = fill_mask(mask, str);
-	return (binary_to_dec(ft_strsplit(fill, ' '), size));
+	STOCK = binary_to_dec(ft_strsplit(fill, ' '), size);
+	SIZE = ft_strlen(STOCK);
+	write(1, STOCK, SIZE);
+	return (1);
 }

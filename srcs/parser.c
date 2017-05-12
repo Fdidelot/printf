@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/10 19:25:32 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/12 13:45:34 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,13 +214,11 @@ t_print	*analyse(char *format, t_print *elem) //va_list *ap
 			{
 				elem = init();
 				start = elem;
-				printf("%s\n", format);
 				format += create_elem(elem, format);
 			}
 			else
 			{
 				new = init();
-				printf("%s\n", format);
 				format += create_elem(new, format);
 				join(elem, new);
 			}

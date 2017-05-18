@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/17 23:01:44 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/18 03:01:05 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,7 @@ void	join(t_print *elem, t_print *new)
 	NEXT = new;
 }
 
-t_print	*analyse(char *format, t_print *elem) //va_list *ap
+void	analyse(char *format, t_print *elem) //va_list *ap
 {
 	t_print *start;
 	t_print *new;
@@ -231,5 +231,4 @@ t_print	*analyse(char *format, t_print *elem) //va_list *ap
 		else
 			format++;
 	}
-	return (start);
 }

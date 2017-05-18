@@ -6,17 +6,18 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 00:00:08 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/18 00:11:09 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/18 03:58:30 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
 int main (void)
 {
-	char str[8] = "Bonjour";
-	printf("%s\n", str);
-	printf("%lls\n", str);
-
+	char c = 'a';
+//	printf("%c\n", c);
+//	printf("%hhc\n", c);
+	write(1, "Bonjour", 0);
 	return (0);
 }

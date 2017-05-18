@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexa.c                                             :+:      :+:    :+:   */
+/*   get_d_i.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/10 17:00:46 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/15 04:17:17 by snedir           ###   ########.fr       */
+/*   Created: 2017/05/15 01:01:46 by snedir            #+#    #+#             */
+/*   Updated: 2017/05/15 05:42:40 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char			*get_hexa_args(t_print *elem, va_list ap)
+char			*get_signed_number(t_print *elem, va_list ap)
 {
-	uintmax_t	data;
+	intmax_t	data;
 	char		*str;
 
-	data = va_arg(ap, uintmax_t);
+	data = va_arg(ap, intmax_t);
 	if (LEN == 'H')
-		data = (unsigned char)data;
+		data = (char)data;
 	if (LEN == 'h')
-		data = (unsigned short)data;
+		data = (short)data;
 	if (LEN == 'l')
-		data = (unsigned long)data;
+		data = (long)data;
 	if (LEN == 'L')
-		data = (unsigned long long)data;
+		data = (long long)data;
 	if (LEN == 'z')
-		data = (size_t)data;
-	if (SPEC == 'X')
-	{
-		str = ft_itoa_base_maj(data, 16, 1);
-		SIZE = ft_strlen(str);
-		return (str);
-	}
-	str = ft_itoa_base_maj(data, 16, 0);
+		data = (ssize_t)data;
+	if (LEN == '0')
+		data = (int)data;
+	str = ft_itoa_base_maj_signed(data, 10);
 	SIZE = ft_strlen(str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 08:33:59 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/12 13:41:32 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/18 13:35:27 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ int					countspace(char *mask)
 	return (1 + i);
 }
 
-
-
 char		*binary_to_dec(char **split, int sizetab)
 {
 	char *tab;
@@ -134,22 +132,36 @@ char		*binary_to_dec(char **split, int sizetab)
 	return (tab);
 }
 
-int			wide_char(t_print *elem, va_list ap)
+char			*wide_char(t_print *elem, va_list ap)
 {
 	char	*str;
 	size_t	len;
 	char	*mask;
-	int		size;
 	char	*fill;
-
-	wchar_t c = va_arg(ap, wchar_t);
+	wint_t	c;
+	
+	c = (wchar_t)va_arg(ap, wint_t);
 	str = ft_itoa_base(c, 2);
 	len = ft_strlen(str);
 	mask = create_mask(len);
-	size = countspace(mask);
 	fill = fill_mask(mask, str);
-	STOCK = binary_to_dec(ft_strsplit(fill, ' '), size);
+	STOCK = binary_to_dec(ft_strsplit(fill, ' '), countspace(mask));
 	SIZE = ft_strlen(STOCK);
-	write(1, STOCK, SIZE);
-	return (1);
+	return (STOCK);
 }
+
+char			*arg_char(t_print *elem, va_list ap)
+{
+	size_t	size;
+	int		data;
+
+	data = (char)va_arg(ap, int);
+	STOCK = (char*)malloc(sizeof(char));
+	STOCK[0] = data;
+	SIZE = 1;
+	return (STOCK);
+}
+
+
+
+

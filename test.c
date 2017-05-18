@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 00:00:08 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/18 03:58:30 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/18 22:29:52 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 int main (void)
 {
-	char c = 'a';
-//	printf("%c\n", c);
-//	printf("%hhc\n", c);
-	write(1, "Bonjour", 0);
+	char c = 'A';
+	char *str = "Bonjour";
+	int	d = 123;
+	printf("%c>>>%s>>>%d\n", c, str, d);
+	printf("%c>>>%*s>>>%d\n", 48, c, str, d);
+	printf("%2$*3$c>>>%4$s>>>%1$d\n", d, 48, c, str);
 	return (0);
 }

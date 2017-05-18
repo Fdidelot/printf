@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/12 13:27:21 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/18 02:20:38 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ typedef	struct		s_print
 	struct s_print	*next;
 }					t_print;
 
-void				parcours_liste(t_print *elem, va_list ap);
+void				field(t_print *elem);
+void				create_stock(t_print *elem);
+void				browse_list(t_print *elem, va_list ap);
 int					wide_char(t_print *elem, va_list ap);
 int					countspace(char *mask);
 char				*binary_to_dec(char **split, int sizetab);

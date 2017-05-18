@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/01 01:09:20 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/12 13:47:28 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/18 02:28:18 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <wchar.h>
 #include <locale.h>
 
-void print_grid(char **grid)
+/*void print_grid(char **grid)
 {
 	int i;
 	int j;
@@ -44,25 +44,33 @@ int print(char *format, ...)
 		
 		va_start(ap, format);
 		start = analyse(format, elem);
-		parcours_liste(start, ap);
+		browse_list(start, ap);
 		return (10);
 	}
-
+	*/
 int main()
 {
-	setlocale(LC_ALL, "");
+//	setlocale(LC_ALL, "");
 	char str[] = "Pet+it a#brut0i : %-d";
 	t_print	*elem;
 	int i = 0;
 
-	elem = NULL;
+/*	elem = NULL;
 	/*************************************************************************/
 	/*free le mask, fill, strsplit*/
-	va_list *ap;
+/*	va_list *ap;
 	int haha = 0x7845;
 
 	while (++i < 1000)
 		print("%C %C %C\n", haha, haha + i, haha + i+1);
+*/
+	elem = init();
+	STOCK = malloc(8);
+	STOCK[0] = 'B';STOCK[1] = 'o';STOCK[2] = 'n';STOCK[3] = 'j';STOCK[4] = 'o';STOCK[5] = '\0';
+	NUM = 100;
+	printf("%s\n", STOCK);
+	field(elem);
+	printf("%s\n", STOCK);
 	return (0);
 }
 

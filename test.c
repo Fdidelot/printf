@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/04 00:32:26 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/18 01:20:05 by fdidelot         ###   ########.fr       */
+/*   Created: 2017/05/18 00:00:08 by fdidelot          #+#    #+#             */
+/*   Updated: 2017/05/18 00:11:09 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include <stdio.h>
 
-int	ft_printf(const char *format, ...)
+int main (void)
 {
-	va_list	*ap;
-	t_print	*elem;
-	t_print	*start;
-	char	*final_buff;
-	int		ret;
+	char str[8] = "Bonjour";
+	printf("%s\n", str);
+	printf("%lls\n", str);
 
-	va_start(ap, format);
-	start = analyse(format, ap, &elem);
-	create_stock(elem);
-	final_buff = create_buff(format, elem);
-	affiche(final_buff);
-	ret = (int)strlen(final_buff);
-	free(final_buff);
-	va_end(ap);
-	return (ret);
+	return (0);
 }

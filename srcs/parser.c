@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/29 02:15:39 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/12 13:45:34 by snedir           ###   ########.fr       */
+/*   Updated: 2017/05/17 23:01:44 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ int	num_width(char *format, t_print *elem, int start)
 	if (i)
 	{
 		str = ft_strsub(format, 0, (size_t)i);
-		NUM = ft_atoi(str);
 		ret = ft_strlen(str);
+		if (format[i + 1] == '$')
+		{
+			DOLL = ft_atoi(str);
+			return ((int)ret + 1);
+		}
+		NUM = ft_atoi(str);
 		free(str);
 		return ((int)ret);
 	}

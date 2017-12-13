@@ -3,16 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/29 05:37:09 by snedir            #+#    #+#             */
-/*   Updated: 2017/05/12 13:27:24 by snedir           ###   ########.fr       */
+/*   Created: 2017/05/20 00:12:21 by fdidelot          #+#    #+#             */
+/*   Updated: 2017/06/10 04:37:57 by fdidelot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*init()
+void	da_free(t_print *elem)
+{
+	t_print *tmp;
+
+	while (elem)
+	{
+		tmp = NEXT;
+		if (elem)
+			free(elem);
+		elem = tmp;
+	}
+}
+
+void	join(t_print *elem, t_print *new)
+{
+	while (NEXT)
+		elem = NEXT;
+	NEXT = new;
+}
+
+t_print	*init(void)
 {
 	t_print *elem;
 
@@ -23,17 +43,18 @@ t_print		*init()
 	HASH = 0;
 	ZERO = 0;
 	NUM = 0;
-	STAR = 0;
+	NACC = 1;
 	ACC = 0;
+	STAR = 0;
 	STARAC = 0;
-	NACC = 0;
 	LEN = '0';
 	SPEC = '1';
-	//NOPE = 0;
+	STOCK = ft_strnew(0);
+	NEXT = NULL;
 	DOLL = 0;
 	SIZE = 0;
-	NEXT = NULL;
-	STOCK = NULL;
+	SIZEF = 0;
+	SIZEW = 0;
+	RUSTINE = 0;
 	return (elem);
 }
-

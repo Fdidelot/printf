@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   da_print.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/18 03:22:58 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/18 05:47:18 by fdidelot         ###   ########.fr       */
+/*   Created: 2014/11/07 14:47:36 by fdidelot          #+#    #+#             */
+/*   Updated: 2017/06/08 02:44:35 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#includes "../includes/ft_printf.h"
+#include "libft.h"
 
-int	da_print(char *format, t_print *elem)
+wchar_t		*ft_strwdup(wchar_t *src)
 {
-	char	*buff;
+	wchar_t	*dest;
 	int		i;
-	int		size;
-	int		last;
 
 	i = 0;
-	size = 0;
-	last = 0;
-	buff = malloc(1);
-	buff = "\0";
-	while (format[i])
+	while (src[i])
+		i++;
+	if (!(dest = (wchar_t *)malloc(sizeof(*dest) * (i + 1))))
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		if (format[i] == '%')
-		{
-			if (i - size > 0)
-				buff = ft_strjoin_free(buff, ft_strsub(format, last, i), 2);
-			i += SIZE;
-			last = i;
-			size += i + STSIZ;
-			buff = ft_strjoin_free(buff, STOCK, 2);
-			elem = NEXT;
-		}
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

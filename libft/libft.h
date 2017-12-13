@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:43:49 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/05/19 00:45:26 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/06/08 02:44:10 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,16 @@ char				*ft_strsub_free(const char *s,
 									unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strjoin_free(const char *s1, const char *s2, int i);
+char				*ft_strjoin_size_free(const char *s1, const char *s2,
+											int size_buf, int size_stock);
 char				*ft_strtrim(const char *s);
 char				*ft_itoa(int n);
 char				*ft_strrev(char *str);
 char				*ft_itoa_base(int nb, int base);
 char				*ft_itoa_base_maj(uintmax_t nb, int base, int flag);
 char				*ft_itoa_base_maj_signed(intmax_t nb, int base);
+
+wchar_t				*ft_strwdup(wchar_t *elem);
 
 char				**ft_strsplit(const char *s, char c);
 
@@ -101,5 +105,7 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int					*ft_range(int min, int max);
+
+long long			ft_atoi_u(char *str);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 03:12:26 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/03/16 03:13:00 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/05/29 04:41:39 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strjoin_free(char const *s1, char const *s2, int k)
 {
